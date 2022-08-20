@@ -1,7 +1,8 @@
 {
   "name": "pwawp",
   "version": "1.0.0",
-  "description": "",
+  "private": "true",
+  "description": "Learning PWA and trying to build my own",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,8 +11,13 @@
     "type": "git",
     "url": "git+https://github.com/aleksei24/pWaWp.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "pwa",
+    "progressive web application",
+    "webpack",
+    "webpack 5"
+  ],
+  "author": "me (Mr. A)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aleksei24/pWaWp/issues"
