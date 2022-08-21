@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/aleksei24/pWaWp/issues"
   },
-  "homepage": "https://github.com/aleksei24/pWaWp#readme"
+  "homepage": "https://github.com/aleksei24/pWaWp#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
 }
