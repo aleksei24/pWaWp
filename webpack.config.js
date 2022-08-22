@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -12,4 +13,12 @@ module.exports = {
       dry: true,
     },
   },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'My PWA',
+      filename: 'index.html',
+      template: './src/template.html',
+    }),
+  ],
 };
