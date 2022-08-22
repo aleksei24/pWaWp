@@ -1,0 +1,98 @@
+$maxWidth: em(992);
+$minWidth: em(200);
+$contWidth: em(980);
+$md1: $contWidth;
+$md2: em(768);
+$md3: em(540);
+$md4: em(480);
+$md5: em(320);
+
+$fontFamily: 'Josefin Sans';
+$bgColour: #ffffff;
+$colourFont: #141313;
+$btnColour: rgb(24, 22, 22);
+$btnBgColour: rgb(255, 123, 0);
+$transparentColour: transparent;
+$error: red;
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  min-width: $minWidth;
+  position: relative;
+  color: $colourFont;
+}
+body {
+  background-color: $bgColour;
+  font-family: $fontFamily;
+  &.lock {
+    overflow: hidden;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  position: relative;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  list-style-type: none;
+  text-decoration: none;
+  outline: 1px solid $error;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+input,
+button,
+textarea {
+  font-family: $fontFamily;
+}
+button {
+  cursor: pointer;
+  border-radius: 5px;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $btnColour;
+  background-color: $btnBgColour;
+}
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  max-width: $maxWidth;
+  margin: 0 auto;
+  background-color: $bgColour;
+}
+.container {
+  max-width: $contWidth;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 0 15px;
+}
