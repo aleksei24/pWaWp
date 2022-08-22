@@ -19,6 +19,13 @@ module.exports = {
       title: 'My PWA',
       filename: 'index.html',
       template: './src/template.html',
+      favicon: './src/fav/fav-pwa.png',
     }),
   ],
+
+  devServer: {
+    port: 9000,
+    hot: false,
+    open: true,
+  },
 };
