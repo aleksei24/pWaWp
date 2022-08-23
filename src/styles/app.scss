@@ -3,4 +3,6 @@
   width: 100%;
   margin: em(50) auto;
   text-align: center;
+  -webkit-user-select: none;
+  user-select: none;
 }
