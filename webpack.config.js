@@ -8,7 +8,7 @@ module.exports = {
 
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'production'),
+    path: path.resolve(__dirname, 'development'),
     clean: {
       dry: true,
     },
@@ -36,5 +36,8 @@ module.exports = {
     port: 9000,
     hot: false,
     open: true,
+    devMiddleware: {
+      writeToDisk: true,
+    },
   },
 };
