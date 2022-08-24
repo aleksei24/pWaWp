@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ImageMinimizerWebpackPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -29,6 +30,23 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.(jpe?g|png|webp)$/i,
+        type: 'asset',
+      },
+    ],
+  },
+
+  optimization: {
+    minimizer: [
+      new ImageMinimizerWebpackPlugin({
+        minimizer: {
+          implementation: ImageMinimizerWebpackPlugin.squooshMinify,
+          options: {
+            plugins: [['jpegtran', { progressive: true }]],
+          },
+        },
+      }),
     ],
   },
 
@@ -36,8 +54,8 @@ module.exports = {
     port: 9000,
     hot: false,
     open: true,
-    devMiddleware: {
-      writeToDisk: true,
-    },
+    liveReload: true,
+    watchFiles: ['src/*.html'],
+    historyApiFallback: true,
   },
 };
