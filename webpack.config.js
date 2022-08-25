@@ -40,16 +40,19 @@ module.exports = {
   optimization: {
     minimizer: [
       new ImageMinimizerWebpackPlugin({
-        minimizer: {
-          implementation: ImageMinimizerWebpackPlugin.squooshMinify,
-          options: {
-            encodeOptions: {
-              mozjpeg: {
-                quality: 90,
+        generator: [
+          {
+            preset: 'webp',
+            implementation: ImageMinimizerWebpackPlugin.squooshGenerate,
+            options: {
+              encodeOptions: {
+                webp: {
+                  quality: 90,
+                },
               },
             },
           },
-        },
+        ],
       }),
     ],
   },

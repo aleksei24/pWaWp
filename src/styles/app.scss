@@ -11,5 +11,12 @@
   &__container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(em(160), 1fr));
+    gap: em(10);
+  }
+  &__item {
+    img {
+      height: 100%;
+      object-fit: fill;
+    }
   }
 }
