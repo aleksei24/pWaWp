@@ -6,3 +6,10 @@
   -webkit-user-select: none;
   user-select: none;
 }
+
+.main {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(em(160), 1fr));
+  }
+}

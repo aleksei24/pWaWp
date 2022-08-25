@@ -32,7 +32,7 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|webp)$/i,
-        type: 'asset',
+        type: 'asset/resource',
       },
     ],
   },
@@ -43,7 +43,11 @@ module.exports = {
         minimizer: {
           implementation: ImageMinimizerWebpackPlugin.squooshMinify,
           options: {
-            plugins: [['jpegtran', { progressive: true }]],
+            encodeOptions: {
+              mozjpeg: {
+                quality: 90,
+              },
+            },
           },
         },
       }),
