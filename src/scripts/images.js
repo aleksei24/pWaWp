@@ -1,7 +1,7 @@
-import img1 from '../img/main_1.jpg?as=webp';
-import img2 from '../img/main_2.jpg?as=webp';
-import img3 from '../img/main_3.jpg?as=webp';
-import img4 from '../img/main_4.jpg?as=webp';
+import img1 from '../img/main_1.jpg';
+import img2 from '../img/main_2.jpg';
+import img3 from '../img/main_3.jpg';
+import img4 from '../img/main_4.jpg';
 
 const mainImg1 = document.querySelector('#img-main-1 img');
 mainImg1.src = img1;

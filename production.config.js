@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ImageMinimizerWebpackPlugin = require('image-minimizer-webpack-plugin');
+const PostCssPresetEnv = require('postcss-preset-env');
 
 module.exports = {
   mode: 'production',
@@ -34,18 +36,37 @@ module.exports = {
             options: {
               postcssOptions: {
                 plugins: [
-                  'postcss-preset-env',
-                  {
+                  PostCssPresetEnv({
                     stage: 2,
                     browsers: 'last 2 versions',
                     autoprefixer: { grid: true },
-                  },
+                  }),
                 ],
               },
             },
           },
         ],
       },
+    ],
+  },
+
+  optimization: {
+    minimizer: [
+      new ImageMinimizerWebpackPlugin({
+        generator: [
+          {
+            preset: 'webp',
+            implementation: ImageMinimizerWebpackPlugin.squooshGenerate,
+            options: {
+              encodeOptions: {
+                webp: {
+                  quality: 90,
+                },
+              },
+            },
+          },
+        ],
+      }),
     ],
   },
 

@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ImageMinimizerWebpackPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -34,26 +33,6 @@ module.exports = {
         test: /\.(jpe?g|png|webp)$/i,
         type: 'asset/resource',
       },
-    ],
-  },
-
-  optimization: {
-    minimizer: [
-      new ImageMinimizerWebpackPlugin({
-        generator: [
-          {
-            preset: 'webp',
-            implementation: ImageMinimizerWebpackPlugin.squooshGenerate,
-            options: {
-              encodeOptions: {
-                webp: {
-                  quality: 90,
-                },
-              },
-            },
-          },
-        ],
-      }),
     ],
   },
 
