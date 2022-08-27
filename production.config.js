@@ -1,8 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ImageMinimizerWebpackPlugin = require('image-minimizer-webpack-plugin');
 const PostCssPresetEnv = require('postcss-preset-env');
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -47,26 +47,10 @@ module.exports = {
           },
         ],
       },
-    ],
-  },
-
-  optimization: {
-    minimizer: [
-      new ImageMinimizerWebpackPlugin({
-        generator: [
-          {
-            preset: 'webp',
-            implementation: ImageMinimizerWebpackPlugin.squooshGenerate,
-            options: {
-              encodeOptions: {
-                webp: {
-                  quality: 90,
-                },
-              },
-            },
-          },
-        ],
-      }),
+      {
+        test: /\.(png|jpe?g|webp)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
 
@@ -78,5 +62,20 @@ module.exports = {
       template: path.resolve(__dirname, './src/template.html'),
     }),
     new MiniCssExtractPlugin(),
+    new ImageminWebpWebpackPlugin({
+      config: [
+        {
+          test: /\.(jpe?g|png)/,
+          options: {
+            quality: 90,
+          },
+        },
+      ],
+      preset: 'webp',
+      copy: false,
+      overrideExtension: true,
+      strict: false,
+      detailedLogs: true,
+    }),
   ],
 };
