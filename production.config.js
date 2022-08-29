@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PostCssPresetEnv = require('postcss-preset-env');
-const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -12,9 +11,7 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'production'),
-    clean: {
-      dry: true,
-    },
+    clean: true,
   },
 
   devtool: 'inline-source-map',
@@ -62,20 +59,5 @@ module.exports = {
       template: path.resolve(__dirname, './src/template.html'),
     }),
     new MiniCssExtractPlugin(),
-    new ImageminWebpWebpackPlugin({
-      config: [
-        {
-          test: /\.(jpe?g|png)/,
-          options: {
-            quality: 90,
-          },
-        },
-      ],
-      preset: 'webp',
-      copy: false,
-      overrideExtension: true,
-      strict: false,
-      detailedLogs: true,
-    }),
   ],
 };
