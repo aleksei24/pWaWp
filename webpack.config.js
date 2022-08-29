@@ -8,7 +8,7 @@ module.exports = {
 
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'production'),
+    path: path.resolve(__dirname, 'development'),
     clean: {
       dry: true,
     },
@@ -29,6 +29,10 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.(jpe?g|png|webp)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
 
@@ -36,5 +40,8 @@ module.exports = {
     port: 9000,
     hot: false,
     open: true,
+    liveReload: true,
+    watchFiles: ['src/*.html'],
+    historyApiFallback: true,
   },
 };
