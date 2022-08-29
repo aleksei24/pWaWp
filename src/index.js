@@ -5,3 +5,4 @@ import './styles/style.scss';
 import './scripts/hello';
 import './scripts/images';
 import './scripts/context';
+import './scripts/dataBase';
