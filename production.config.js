@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PostCssPresetEnv = require('postcss-preset-env');
+const ImageMinimizerWebpackPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -60,4 +61,24 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(),
   ],
+
+  optimization: {
+    minimizer: [
+      new ImageMinimizerWebpackPlugin({
+        generator: [
+          {
+            preset: 'webp',
+            implementation: ImageMinimizerWebpackPlugin.squooshGenerate,
+            options: {
+              encodeOptions: {
+                webp: {
+                  quality: 50,
+                },
+              },
+            },
+          },
+        ],
+      }),
+    ],
+  },
 };
